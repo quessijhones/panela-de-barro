@@ -1,0 +1,24 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji','Segoe UI Emoji'; color: #111; background: conic-gradient(at top right, #faf8f6, #fff, #f7f5f2); }
+a { color: inherit; }
+.container { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+.nav { position: sticky; top: 0; backdrop-filter: blur(6px); background: rgba(255,255,255,.7); border-bottom: 1px solid rgba(0,0,0,.08); z-index: 50; }
+.nav-inner { display:flex; align-items:center; justify-content:space-between; padding: 12px 0; }
+.btn { border: 1px solid #111; padding: 10px 14px; border-radius: 16px; background: #111; color: #fff; cursor:pointer; }
+.btn.secondary { background: #fff; color: #111; border-color: rgba(0,0,0,.2); }
+.section { scroll-margin-top: 90px; padding: 64px 0; }
+.grid { display: grid; gap: 20px; }
+.hero { padding: 90px 0 40px; }
+.card { border: 1px solid rgba(0,0,0,.1); border-radius: 16px; background: rgba(255,255,255,.6); padding: 16px; }
+.price { opacity: .7; white-space: nowrap; }
+.badge { font-size: 12px; padding: 2px 8px; border-radius: 999px; border: 1px solid rgba(0,0,0,.2); background: #fff; }
+.flagbtn { border: 1px solid rgba(0,0,0,.2); background: #fff; border-radius: 999px; padding: 4px 8px; font-size: 14px; }
+.flagbtn.active { background: #111; color: #fff; border-color: #111; }
+.footer { border-top: 1px solid rgba(0,0,0,.1); padding: 40px 0; font-size: 14px; }
+.gallery { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 12px; }
+.gallery img { width:100%; height: 240px; object-fit: cover; border-radius: 16px; border:1px solid rgba(0,0,0,.1); }
+.menu-items { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 16px; }
+@media (min-width: 768px) {
+  .two { grid-template-columns: 1fr 1fr; }
+  .hero-grid { display:grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items:center; }
+}
