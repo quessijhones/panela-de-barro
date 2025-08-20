@@ -1,175 +1,124 @@
-/* ----------------- Panela de Barro — Tema ----------------- */
-:root {
-  /* Paleta inspirada em barro, madeira, verde e dourado */
-  --clay-700: #6f2f19; /* cor principal */
-  --clay-600: #8c3b1f; /* hover / destaques */
-  --clay-500: #a54d2a; /* botões / menus */
-  --clay-300: #d7a082; /* detalhes e bordas */
-  --sand-25: #fdf9f3;  /* fundo claro */
-  --sand-50: #fbf6ef;  /* áreas neutras */
-  --gold: #d4a017;     /* detalhes elegantes */
-  --leaf: #567d46;     /* verde folha */
-  --ink: #201813;      /* texto principal */
-  --muted: #6b5e57;    /* texto suave */
-  --radius: 16px;
-}
-
-/* ----------------- Reset ----------------- */
-* {
+body {
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  font-family: 'Playfair Display', serif;
+  background-color: #f4e1d2;
+  color: #3b2f2f;
 }
 
-html, body {
-  height: 100%;
-  font-family: "Inter", sans-serif;
-  color: var(--ink);
-  background-color: var(--sand-50);
-  line-height: 1.6;
+.logo {
+  height: 80px;
+  margin-right: 20px;
 }
 
-/* ----------------- Cabeçalho ----------------- */
 header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: var(--clay-700);
-  padding: 1.2rem 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
+  padding: 1rem 3rem;
+  background-color: #fdf5ef;
+  border-bottom: 1px solid #e6d4c8;
 }
 
-header h1 {
-  font-family: "Playfair Display", serif;
-  font-size: 1.8rem;
-  color: white;
-  letter-spacing: 1px;
-}
-
-/* ----------------- Menu ----------------- */
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: white;
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-  color: var(--gold);
-}
-
-/* ----------------- Hero Section ----------------- */
-.hero {
-  margin-top: 80px;
-  height: 80vh;
-  background: url("https://images.unsplash.com/photo-1555396273-367ea4eb4db5") center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-  padding: 2rem;
-}
-
-.hero h2 {
-  font-family: "Playfair Display", serif;
-  font-size: 3rem;
-  max-width: 700px;
-  line-height: 1.2;
-  text-shadow: 0px 3px 10px rgba(0, 0, 0, 0.6);
-}
-
-/* ----------------- Botões ----------------- */
-.button {
-  background-color: var(--clay-600);
-  color: white;
-  padding: 0.8rem 2rem;
-  border-radius: var(--radius);
-  border: none;
+nav a {
+  margin: 0 1rem;
+  color: #3b2f2f;
   font-weight: bold;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
 }
 
-.button:hover {
-  background-color: var(--clay-500);
+nav a:hover {
+  color: #a65c38;
 }
 
-/* ----------------- Cards do Menu ----------------- */
-.menu-section {
-  padding: 4rem 5%;
-  background-color: var(--sand-25);
+.hero {
   text-align: center;
+  padding: 3rem 1rem;
+  background-color: #fdf5ef;
 }
 
-.menu-section h3 {
-  font-size: 2rem;
-  font-family: "Playfair Display", serif;
-  color: var(--clay-700);
-  margin-bottom: 2rem;
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero button {
+  background-color: #a65c38;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 8px;
+}
+
+.menu-section {
+  padding: 2rem;
+  text-align: center;
 }
 
 .menu-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
 }
 
 .menu-card {
   background: white;
-  border-radius: var(--radius);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
-  transition: transform 0.3s ease;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s;
 }
 
 .menu-card:hover {
-  transform: translateY(-10px);
+  transform: scale(1.05);
 }
 
 .menu-card img {
   width: 100%;
-  border-radius: var(--radius);
-  margin-bottom: 1rem;
+  border-radius: 8px;
 }
 
-.menu-card h4 {
-  font-size: 1.2rem;
-  color: var(--clay-600);
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.menu-card p {
-  color: var(--muted);
-  font-size: 0.95rem;
-  margin: 0.5rem 0 1rem;
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 90%;
 }
 
-.menu-card span {
-  font-weight: bold;
-  color: var(--leaf);
-  font-size: 1.1rem;
-}
-
-/* ----------------- Rodapé ----------------- */
-footer {
-  background-color: var(--clay-700);
-  color: white;
+.gallery {
+  padding: 2rem;
   text-align: center;
-  padding: 1.5rem;
-  margin-top: 3rem;
-  font-size: 0.9rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.gallery-grid img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+footer {
+  background-color: #fdf5ef;
+  padding: 1rem;
+  text-align: center;
 }
 
