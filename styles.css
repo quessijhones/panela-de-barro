@@ -1,24 +1,127 @@
-* { box-sizing: border-box; }
-body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji','Segoe UI Emoji'; color: #111; background: conic-gradient(at top right, #faf8f6, #fff, #f7f5f2); }
-a { color: inherit; }
-.container { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
-.nav { position: sticky; top: 0; backdrop-filter: blur(6px); background: rgba(255,255,255,.7); border-bottom: 1px solid rgba(0,0,0,.08); z-index: 50; }
-.nav-inner { display:flex; align-items:center; justify-content:space-between; padding: 12px 0; }
-.btn { border: 1px solid #111; padding: 10px 14px; border-radius: 16px; background: #111; color: #fff; cursor:pointer; }
-.btn.secondary { background: #fff; color: #111; border-color: rgba(0,0,0,.2); }
-.section { scroll-margin-top: 90px; padding: 64px 0; }
-.grid { display: grid; gap: 20px; }
-.hero { padding: 90px 0 40px; }
-.card { border: 1px solid rgba(0,0,0,.1); border-radius: 16px; background: rgba(255,255,255,.6); padding: 16px; }
-.price { opacity: .7; white-space: nowrap; }
-.badge { font-size: 12px; padding: 2px 8px; border-radius: 999px; border: 1px solid rgba(0,0,0,.2); background: #fff; }
-.flagbtn { border: 1px solid rgba(0,0,0,.2); background: #fff; border-radius: 999px; padding: 4px 8px; font-size: 14px; }
-.flagbtn.active { background: #111; color: #fff; border-color: #111; }
-.footer { border-top: 1px solid rgba(0,0,0,.1); padding: 40px 0; font-size: 14px; }
-.gallery { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 12px; }
-.gallery img { width:100%; height: 240px; object-fit: cover; border-radius: 16px; border:1px solid rgba(0,0,0,.1); }
-.menu-items { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 16px; }
-@media (min-width: 768px) {
-  .two { grid-template-columns: 1fr 1fr; }
-  .hero-grid { display:grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items:center; }
+/* ---- Panela de Barro — Tema ---- */
+:root{
+  /* Terracota & argila */
+  --clay-700:#6f2f19;
+  --clay-600:#8c3b1f;            /* cor principal */
+  --clay-500:#a54d2a;            /* hover */
+  --clay-300:#d7a082;            /* detalhes/bordas */
+  --sand-25:#fdf9f3;             /* fundo claro */
+  --sand-50:#fbf6ef;
+  --ink:#201813;                 /* texto */
+  --muted:#6b5e57;               /* texto suave */
+  --success:#2e7d32;
+  --radius:16px;
 }
+
+/* ---- Reset + base ---- */
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  color:var(--ink);
+  background: radial-gradient(1200px 600px at 10% 0%, var(--sand-50), var(--sand-25));
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+  line-height:1.6;
+}
+a{ color:var(--clay-600); text-decoration:none; }
+a:hover{ color:var(--clay-500); }
+
+.container{ max-width:1120px; margin:0 auto; padding:0 16px; }
+
+/* ---- Navbar ---- */
+.nav{
+  position:sticky; top:0; z-index:50;
+  backdrop-filter:saturate(120%) blur(8px);
+  background:rgba(255,255,255,.78);
+  border-bottom:1px solid rgba(0,0,0,.06);
+}
+.nav-inner{
+  display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px 0;
+}
+.nav a{ font-weight:600; }
+.nav a:hover{ text-decoration:underline; }
+
+/* ---- Títulos ---- */
+h1,h2,h3{ font-family: "Playfair Display", Georgia, serif; color:var(--ink); margin:0 0 6px 0; }
+h1{ font-size: clamp(32px, 4.2vw, 56px); line-height:1.15; }
+h2{ font-size: clamp(22px, 3vw, 36px); }
+h3{ font-size: clamp(18px, 2.2vw, 22px); }
+
+/* ---- Utilidades ---- */
+.section{ scroll-margin-top:90px; padding:64px 0; }
+.grid{ display:grid; gap:20px; }
+.two{ grid-template-columns:1fr; }
+@media (min-width:768px){ .two{ grid-template-columns:1fr 1fr; } }
+.hero{ padding:92px 0 40px; }
+
+/* ---- Cards ---- */
+.card{
+  background: rgba(255,255,255,.85);
+  border:1px solid rgba(0,0,0,.08);
+  border-radius: var(--radius);
+  padding:16px;
+  box-shadow: 0 8px 24px rgba(140,59,31,.06);
+}
+
+/* ---- Botões ---- */
+.btn{
+  display:inline-block;
+  border:1px solid var(--clay-600);
+  background:var(--clay-600);
+  color:#fff; padding:10px 14px;
+  border-radius:calc(var(--radius) - 2px);
+  font-weight:700; cursor:pointer;
+  transition:.15s ease;
+}
+.btn:hover{ background:var(--clay-500); border-color:var(--clay-500); transform:translateY(-1px); }
+.btn:active{ transform:translateY(0); }
+
+.btn.secondary{
+  background:#fff; color:var(--clay-600);
+  border-color:var(--clay-300);
+}
+.btn.secondary:hover{ border-color:var(--clay-600); }
+
+/* ---- Selos / chips ---- */
+.badge{
+  display:inline-block; font-size:12px;
+  padding:4px 10px; border-radius:999px;
+  border:1px solid var(--clay-300); background:#fff; color:var(--ink);
+}
+
+/* ---- Flag switcher ---- */
+.flagbtn{
+  border:1px solid rgba(0,0,0,.15); background:#fff;
+  border-radius:999px; padding:6px 10px; font-size:13px; cursor:pointer;
+}
+.flagbtn.active{
+  background:var(--clay-600); color:#fff; border-color:var(--clay-600);
+}
+
+/* ---- Menu ---- */
+.menu-items{
+  display:grid; gap:16px;
+  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+}
+.menu-card .title{ font-weight:700; font-size:18px; }
+.menu-card .desc{ opacity:.85; font-size:14px; margin-top:4px; }
+.menu-card .price{ font-weight:700; white-space:nowrap; color:var(--clay-700); }
+
+.menu-section{
+  margin-top:28px;
+  border-left:4px solid var(--clay-300);
+  padding-left:14px;
+}
+
+/* ---- Galeria ---- */
+.gallery{
+  display:grid; gap:12px;
+  grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+}
+.gallery img{
+  width:100%; height:240px; object-fit:cover;
+  border-radius:16px; border:1px solid rgba(0,0,0,.08);
+}
+
+/* ---- Rodapé ---- */
+.footer{ border-top:1px solid rgba(0,0,0,.08); padding:40px 0; font-size:14px; color:var(--muted); }
